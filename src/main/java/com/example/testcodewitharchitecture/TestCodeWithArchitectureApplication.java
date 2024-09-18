@@ -10,22 +10,16 @@ public class TestCodeWithArchitectureApplication {
 
     public static void main(String[] args) {
         // SpringApplication.run(TestCodeWithArchitectureApplication.class, args);
-        // 계산기
         Scanner scanner = new Scanner(System.in);
-        System.out.println("두개의 숫자와 연산자를 입력하세요. (예: 3 + 4):");
-        String result = scanner.nextLine();
-        String[] parts = result.split(" ");
+        System.out.println("Enter two numbers and an operator (e.g. 1 + 2): ");
+        String resert = scanner.nextLine();
+        String[] parts = resert.split(" ");
         long num1 = Long.parseLong(parts[0]);
         long num2 = Long.parseLong(parts[2]);
         String operator = parts[1];
-        long answer = switch (operator) {
-            case "+" -> num1 + num2;
-            case "-" -> num1 - num2;
-            case "*" -> num1 * num2;
-            case "/" -> num1 / num2;
-            default -> throw new InvalidOperaterException();
-        };
-        System.out.println("답: " + answer);
+        long answer = new Calculator().calculate(num1, operator, num2);
+        System.out.println("Answer: " + answer);
+
 
 
     }
